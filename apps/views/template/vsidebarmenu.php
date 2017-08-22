@@ -23,16 +23,16 @@
 
         <a href="#">
             <i class="fa fa-folder"></i>
-            <span>Modul Recruitment</span>
+            <span>Master Data</span>
             <span class="label label-primary pull-right"></span>
         </a>
 
         <ul class="treeview-menu collapsed">
             <li><a href="<?php echo base_url() ?>mod-posisi"><i class="fa fa-user"></i>Input Posisi </a></li>
             <li><a href="<?php echo base_url() ?>mod-psikotes"><i class="fa fa-user"></i>Input Psikotes </a></li>
-            <li><a href="<?php echo base_url() ?>mod-sorching"><i class="fa fa-book"></i>Input Sorching CV </a></li>
+            <li><a href="<?php echo base_url() ?>mod-sorching"><i class="fa fa-user"></i>Input Sorching CV </a></li>
             <li>
-                <a href="#"><i class="fa fa-book"></i>Client</a>
+                <a href="#"><i class="fa fa-user"></i>Client</a>
                 <ul class="treeview-menu">
                     <li><a href="<?php echo base_url() ?>mod-area"><i class="fa fa-user"></i>Input Area </a></li>
                     <li><a href="<?php echo base_url() ?>mod-cabang"><i class="fa fa-user"></i>Input cabang </a></li>
@@ -41,9 +41,9 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-book"></i>Data</a>
+                <a href="#"><i class="fa fa-user"></i>Data</a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo base_url() ?>new-entry"><i class="fa fa-book"></i>New Entry </a></li>
+                    <li><a href="<?php echo base_url() ?>new-entry"><i class="fa fa-user"></i>New Entry </a></li>
                     <li><a href="<?php echo base_url() ?>mod-pipeline"><i class="fa fa-user"></i>Existing Data</a></li>
                 </ul>
             </li>
@@ -69,12 +69,12 @@
         <ul class="treeview-menu">
             <li><a href="<?php echo base_url() ?>caller"><i class="fa fa-phone"></i>Caller </a></li>
 <!--            <li><a href="<?php echo base_url() ?>kandidat"><i class="fa fa-user"></i>Data Kandidat </a></li>-->
-            <li><a href="<?php echo base_url() ?>interviewer"><i class="fa fa-user-secret"></i>Interviewer</a></li>
-            <li><a href="<?php echo base_url() ?>psikotes"><i class="fa fa-user-secret"></i>Psikotes</a></li>
+            <li><a href="<?php echo base_url() ?>interviewer"><i class="fa fa-user"></i>Interviewer</a></li>
+            <li><a href="<?php echo base_url() ?>psikotes"><i class="fa fa-user"></i>Psikotes</a></li>
         </ul>
 
     </li>
-    <li class="treeview">
+<!--    <li class="treeview">
         <a href="#">
             <i class="fa fa-user-times"></i>
             <span>HRD</span>
@@ -86,7 +86,7 @@
             <li><a href="#"><i class="fa fa-user"></i>Benefit</a></li>
             <li><a href="#"><i class="fa fa-user"></i>Payrol</a></li>
         </ul>
-    </li>
+    </li>-->
     <!--    <li class="treeview">
             <a href="#">
                 <i class="fa fa-user-plus"></i>

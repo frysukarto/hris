@@ -991,6 +991,7 @@
     var modal_add_kursus;
     var modal_add_kemampuan_bahasa;
     var modal_edit_posisi_penempatan;
+    var keterangan_lain;
 
     $(document).ready(function () {
         table = $('#table').DataTable({
@@ -1506,7 +1507,7 @@
                 if (data.status)
                 {
                     $('#modal_edit_keterangan_lain').modal('hide');
-                    location.reload();
+                    $("#keterangan_lain").load(" #keterangan_lain");
                 } else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
@@ -1919,7 +1920,7 @@ for ($a = 0; $a < $total_org; $a++) {
             <strong>Alamat</strong> : <?php echo $darurat[0]['alamat_d'] ?><br>
         </div>
     </div>
-    <div class="box box-warning">
+    <div  id="keterangan_lain" class="box box-warning">
         <div class="box-header with-border">
             <h3 class="box-title">KETERANGAN LAIN</h3>
             <div class="box-tools pull-right">

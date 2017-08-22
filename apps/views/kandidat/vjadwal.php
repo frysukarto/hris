@@ -1,5 +1,4 @@
 <style>
-    
     #content {
         float: right;
         width: 55%;
@@ -77,6 +76,7 @@
 <script type="text/javascript">
     var save_method;
     var modal_add_result_interview;
+    var wrapper;
 
     function edit_jadwal_interview(id_jadwal_interview)
     {
@@ -116,7 +116,7 @@
                 if (data.status)
                 {
                     $('#modal_add_result_interview').modal('hide');
-                    location.reload();
+                    $("#wrapper").load(" #wrapper");
                 } else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
@@ -136,6 +136,9 @@
             }
         });
     }
+    
+    
+    
 </script>
 <div class="modal fade" id="modal_add_result_interview" role="dialog">
     <div  class="modal-dialog">

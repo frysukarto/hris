@@ -176,7 +176,19 @@ function delete_person(id_buku_tahunan)
         });
     }
 }
+setInterval(function ()
+{
+    $.ajax({
+        type: "post",
+        url: "<?php echo base_url() ?>new-entry",
+        datatype: "html",
+        success: function (data)
+        {
+             reload_table();
 
+        }
+    });
+}, 10000);
 </script>
 <!-- Bootstrap modal -->
 <div class="modal fade" id="modal_form" role="dialog">

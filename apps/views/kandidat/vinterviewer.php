@@ -2,6 +2,9 @@
     <div class="box-header">
         <h3 class="box-title">INTERVIEWER</h3>
     </div>
+    
+    
+    
     <div class="box-body">
         <table id="table" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
@@ -125,6 +128,8 @@
         $(".docs-date").datepicker();
     }
 
+    
+    
     function reload_table()
     {
         table.ajax.reload(null, false);
@@ -221,7 +226,7 @@
     {
         table.ajax.reload(null, false);
     }
-    
+     
     function call_dialog()
     {
         save_method = 'add';
@@ -267,6 +272,19 @@
             }
         });
     }
+    
+    setInterval(function()
+        { 
+            $.ajax({
+              type:"post",
+              url:"<?php echo base_url()?>interviewer",
+              datatype:"html",
+              success:function(data)
+              {
+                  table.ajax.reload(null, false);
+              }
+            });
+        }, 10000);
 </script>
 <div class="modal fade" id="modal_add_jadwal_itv" role="dialog" data-keyboard="false" data-backdrop="static">
     <div class="modal-dialog">
@@ -311,7 +329,7 @@
                                 <input type="no_tlp" required id="no_tlp" name="no_tlp" value="${no_tlp.value}" class="form-control" placeholder="no tlp ...">
                                 <span class="help-block"></span>
                             </div>
-                            <a target="_blank" onclick="call_dialog()" ><i class="fa fa-phone"></i></a>
+                            <button type="button" id="btnSavejw" onclick="call_dialog()" class="btn btn-info"><i class="fa fa-phone"></i> Call</button>
                             
                         </div>
 
@@ -319,7 +337,7 @@
                             <label class="control-label col-md-3">Status Call</label>
                             <div class="col-md-9">
                                 <select id="ddlPassport" name="status_call" class="form-control">
-                                     <option selected="selected" value="">--Pilih--</option>
+                                    <option selected="selected" value="">--Pilih--</option>
                                     <option value="2">Answer</option>
                                     <option value="4">No Answer</option>
                                     <option value="5">Reject : Tidak Minat</option>
@@ -397,10 +415,9 @@
                                         <?php $total = count($client);
                                         for ($i = 0; $i < $total; $i++) { ?>
                                             <option value="<?php echo $client[$i]['nama_perusahaan']; ?>"><?php echo $client[$i]['nama_perusahaan']; ?></option>
-                                <?php } ?>
+                                        <?php } ?>
                                     </select>
                                 </div>
-
                             </div>
                         </div>
                         <div style="display: none" id="onboard">
@@ -410,10 +427,7 @@
                                 <div class="col-md-9">
                                     <select  class="form-control" name="id_cabang" id="sc_get_cabang">
                                         <option value="" >Pilih Cabang</option>
-                                        <?php
-                                        foreach ($dropdownprov as $a) {
-                                            echo '<option value="' . $a["id_cabang"] . '">' . $a["nama_cabang"] . '</option>';}
-                                        ?>
+                                        <?php foreach ($dropdownprov as $a) {echo '<option value="' . $a["id_cabang"] . '">' . $a["nama_cabang"] . '</option>';} ?>
                                     </select>
                                 </div>
                             </div>
@@ -757,7 +771,7 @@
                          <div class="form-group">
                              <div align="center"><img  src="<?php echo base_url()?>assets/images/call.gif" width="140px"></div>
                              <h1 align="center">On call</h1><hr>
-                             <button style="margin-left: 100px;" type="button" data-dismiss="modal" aria-label="Close">End call</button>
+                             <button style="margin-left: 100px;" type="button" class="btn btn-danger" data-dismiss="modal" aria-label="Close">End call</button>
                          </div>
                        </div>
                 </form>

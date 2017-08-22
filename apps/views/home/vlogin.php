@@ -6,6 +6,7 @@
   <title>HRIS Valdo</title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <?php echo $html['css']; ?>
+  <link href="<?php echo base_url() ?>assets/dist/img/user2-160x160.jpg" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body class="hold-transition login-page" style="background-image: url(<?php echo base_url() ?>assets/images/login_bg.jpg); background-size: 100% 100%; background-position: center; background-repeat: no-repeat;">
 <div class="login-box">

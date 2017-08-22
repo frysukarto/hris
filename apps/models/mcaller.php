@@ -244,6 +244,12 @@ class Mcaller extends CI_Model {
         $this->db->insert('td_call_history', $data);
         return $this->db->insert_id();
     }
+    function delete_kandidat() {
+        
+        $this->db->where('id_kand', $this->input->post('id_kand'));
+        $this->db->delete('td_buku_tahunan');
+    }
+    
     function auto_id_kandidat() 
     {
         $sql = 'SELECT `AUTO_INCREMENT` FROM INFORMATION_SCHEMA.TABLES  WHERE TABLE_SCHEMA = "pasopati" AND TABLE_NAME = "td_kandidat" ';

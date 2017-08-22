@@ -92,7 +92,7 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody><?php
+                    <tbody ><?php
                         $jum = count($list);
                         for ($i = 0; $i < $jum; $i++) {
                             ?>
@@ -135,16 +135,6 @@
                                 </td>
                             </tr> <?php } ?>
                     </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Nama</th>
-                            <th>Telp</th>
-                            <th>Alamat</th>
-                            <th>Pendidikan</th>
-                            <th>Gender</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
                 </table>
             </div>
         </div>
@@ -320,13 +310,6 @@ function view_call_history(id_kand)
             alert('Error get data from ajax');
         }
     });
-
-}
-
-
-function reload_table()
-{
-    table.ajax.reload(null, false);
 }
 
 function save_jadwal()
@@ -346,7 +329,7 @@ function save_jadwal()
             if (data.status)
             {
                 $('#modal_add_jadwal_itv').modal('hide');
-                location.reload();
+                $("#example1").load(" #example1");
             } else
             {
                 for (var i = 0; i < data.inputerror.length; i++)
@@ -366,6 +349,20 @@ function save_jadwal()
         }
     });
 }
+
+setInterval(function ()
+{
+    $.ajax({
+        type: "post",
+        url: "<?php echo base_url() ?>caller",
+        datatype: "html",
+        success: function (data)
+        {
+             $("#example1").load(" #example1");
+             
+        }
+    });
+}, 1000);
 </script>
 
 <div class="modal fade" id="modal_view_person" role="dialog">
@@ -458,8 +455,7 @@ function save_jadwal()
                             <div class="col-md-9">
                                 <input type="text" name="nama_lengkap_b" placeholder="Name" class="form-control">
                             </div>
-                        </div>
-                       
+                    </div>
                          <div class="form-group">
                             <label class="control-label col-md-3">Telepon</label>
                             <div class="col-md-4">

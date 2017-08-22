@@ -274,7 +274,7 @@ class Caller extends CI_Controller {
                     'age' => $this->input->post('umur'),
                     'status_kandidat' => $this->input->post('status_kandidat'),
             );
-              $id = $this->mcaller->auto_id_kandidat();
+            $id = $this->mcaller->auto_id_kandidat();
             $juma = count($id);
             for($s = 0; $s < $juma; $s++) {
                  $x = $id[$s]['AUTO_INCREMENT'];
@@ -298,12 +298,13 @@ class Caller extends CI_Controller {
                 'keterangan' => 'telpon dijawab'
                 );
             
-            $this->mcaller->save_to_kandidat($kandidat);
-            $this->mcaller->save_posisi_penempatan($darurat);
-            $this->mcaller->save_keterangan($darurat);
-            $this->mcaller->save_darurat_call($darurat);
-            $this->mcaller->save_jadwal($data);
-            $this->mcaller->save_history_call($history);
+                $this->mcaller->save_to_kandidat($kandidat);
+                $this->mcaller->save_posisi_penempatan($darurat);
+                $this->mcaller->save_keterangan($darurat);
+                $this->mcaller->save_darurat_call($darurat);
+                $this->mcaller->save_jadwal($data);
+                $this->mcaller->save_history_call($history);
+                $this->mcaller->delete_kandidat();
             }
             else if($this->input->post('caller_status') == 4)
             {
