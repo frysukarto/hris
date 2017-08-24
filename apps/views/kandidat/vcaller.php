@@ -484,7 +484,7 @@ setInterval(function ()
                             <label class="control-label col-md-3">Tahap interview</label>
                             <div class="col-md-9">
                                 <select name="status_kandidat" id="interview" class="form-control">
-                                    <option value="">--pilih--</option>
+                                 <option value="">--Pilih--</option>
                                     <option value="3">Interview HRD</option>
                                 </select>
                             </div>

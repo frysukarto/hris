@@ -136,9 +136,6 @@
             }
         });
     }
-    
-    
-    
 </script>
 <div class="modal fade" id="modal_add_result_interview" role="dialog">
     <div  class="modal-dialog">

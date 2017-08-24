@@ -129,6 +129,10 @@ class View_all_kandidat extends CI_Controller {
             $this->mkandidat->update_lamaran_kandidat($lamaranfile, $id);
             $this->mkandidat->update_ijazah_kandidat($ijazah_file, $id);
             redirect("view/" . $id . "/" . slug($t['kandidat'][0]['nama_lengkap']));
+            
+//            $this->mkandidat->update_pass_foto_kandidat(array('id_kandidat' => $this->input->post('id_kandidat')), $pas_foto_file);
+//       // $this->mlog->log_editdata();
+//           echo json_encode(array("status" => TRUE));
         }
 
          $prov_id = $this->uri->segment(2,0);
@@ -929,13 +933,59 @@ class View_all_kandidat extends CI_Controller {
         redirect("view/" . $id . "/" . slug($t['kandidat'][0]['nama_lengkap']));
     }
     
-    /*DELETE VIEW KANDIDAT*/
-    public function delete_view_organisasi($id)
-    {
+    //   *DELETE VIEW KANDIDAT*/
+    //    public function delete_view_organisasi($id)
+    //    {
+    //        $this->mkandidat->delete_view_organisasi($id);
+    //        echo json_encode(array("status" => TRUE));
+    //    }
+    
+    public function delete_view_kursus($id) {
+        $this->mkandidat->delete_view_kursus($id);
+        echo json_encode(array("status" => TRUE));
+    }
+    public function delete_view_organisasi($id) {
         $this->mkandidat->delete_view_organisasi($id);
         echo json_encode(array("status" => TRUE));
     }
+    public function delete_view_referensi($id) {
+        $this->mkandidat->delete_view_referensi($id);
+        echo json_encode(array("status" => TRUE));
+    }
+     public function delete_view_keluarga($id) {
+        $this->mkandidat->delete_view_keluarga($id);
+        echo json_encode(array("status" => TRUE));
+    }
+    
+    function delete_view_pendidikan($id) {
+        $this->mkandidat->delete_view_pendidikan($id);
+        echo json_encode(array("status" => TRUE));
+    }
+    function delete_view_pengalaman($id) {
+         $this->mkandidat->delete_view_pengalaman($id);
+        echo json_encode(array("status" => TRUE));
+    }
+    function delete_view_kemkomputer($id) {
+         $this->mkandidat->delete_view_kemkomputer($id);
+        echo json_encode(array("status" => TRUE));
+    }
+    function delete_view_kembahasa($id) {
+          $this->mkandidat->delete_view_kembahasa($id);
+        echo json_encode(array("status" => TRUE));
+    }
     /*DELETE VIEW KANDIDAT END*/
+    function ajax_update_pass_foto() {
+        $config['upload_path'] = $this->config->item('upload_temp');
+        $config['allowed_types'] = '*';
+        $this->load->library('upload', $config);
+       
+        $foto = $this->upload->data();
+        $pas_foto_file = $this->createPasFoto($foto);
+        $data = array('pas_foto_file' => $pas_foto_file); 
+        $this->mkandidat->update_pass_foto_kandidat(array('id_kandidat' => $this->input->post('id_kandidat')), $data);
+        echo json_encode(array("status" => TRUE));
+       
+    }
     
     function is_logged_in() {
         $is_logged_in = $this->session->userdata('is_logged_in');

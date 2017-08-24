@@ -55,10 +55,8 @@
                                 <span id="user-ktp-status"></span>
                                 <span class="help-block"></span>
                                 <input type="text" class="form-control docs-date" minlength="10" id="ktp_expired_date" name="sim_expired_date" value="<?php echo date('d/m/Y', strtotime(strtr($kandidat[0]['sim_expired_date'], '/', '-'))) ?>" placeholder="SIM Expired Date">
-
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label class="control-label col-md-3">Agama</label>
                             <div class="col-md-9">
@@ -86,7 +84,6 @@
                                 <span class="help-block"></span>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label class="control-label col-md-3">Tempat Tinggal</label>
                             <div class="col-md-9">
@@ -118,7 +115,6 @@
                                 <span class="help-block"></span>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label class="control-label col-md-3">Suku</label>
                             <div class="col-md-9">
@@ -126,7 +122,6 @@
                                 <span class="help-block"></span>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label class="control-label col-md-3">Hobby</label>
                             <div class="col-md-9">
@@ -134,7 +129,6 @@
                                 <span class="help-block"></span>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label class="control-label col-md-3">Pengalaman Memimpin</label>
                             <div class="col-md-9">
@@ -142,7 +136,6 @@
                                 <span class="help-block"></span>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label class="control-label col-md-3">Golongan Darah</label>
                             <div class="col-md-9">
@@ -302,15 +295,15 @@
                             <div class="col-md-9">
                                 <div class="radio" >
                                     <label><input type="radio" class="minimal" onclick="show4();" <?php
-                                                  if ($ketla[0]['pidana'] == "Ya") {
-                                                      echo "checked";
-                                                  }
-                                                  ?> name="pidana" id="pidana" value="Ya" >Ya</label>
+                                        if ($ketla[0]['pidana'] == "Ya") {
+                                            echo "checked";
+                                        }
+                                        ?> name="pidana" id="pidana" value="Ya" >Ya</label>
                                     <label><input type="radio" class="minimal" onclick="show3();" <?php
-                                                  if ($ketla[0]['pidana'] == "Tidak") {
-                                                      echo "checked";
-                                                  }
-                                                  ?>  name="pidana" id="pidana" value="Tidak">Tidak</label>
+                                        if ($ketla[0]['pidana'] == "Tidak") {
+                                            echo "checked";
+                                        }
+                                        ?>  name="pidana" id="pidana" value="Tidak">Tidak</label>
                                     <div id="div2" style="display: none">
                                         <textarea type="text" name="ket_kriminal" id="ket_kriminal" class="form-control" placeholder="Sebutkan tindak kriminal yang ada lakukan" ></textarea>
                                     </div>
@@ -321,15 +314,15 @@
                             <label class="control-label col-md-3">Apakah ada keluarga/ Saudara Anda yang bekerja di PT. Valdo Sumber Daya Mandiri?</label>
                             <div class="col-md-9"> <div class="radio" >
                                     <label><input type="radio" class="minimal" name="orang_dalam" <?php
-                                                  if ($ketla[0]['orang_dalam'] == "Ya") {
-                                                      echo "checked";
-                                                  }
-                                                  ?> id="orang_dalam" onclick="show6();" value="Ya" >Ya</label>
+                                        if ($ketla[0]['orang_dalam'] == "Ya") {
+                                            echo "checked";
+                                        }
+                                        ?> id="orang_dalam" onclick="show6();" value="Ya" >Ya</label>
                                     <label><input type="radio" class="minimal" name="orang_dalam" <?php
-                                                  if ($ketla[0]['orang_dalam'] == "Tidak") {
-                                                      echo "checked";
-                                                  }
-                                                  ?> id="orang_dalam" onclick="show5();" value="Tidak">Tidak</label>
+                                        if ($ketla[0]['orang_dalam'] == "Tidak") {
+                                            echo "checked";
+                                        }
+                                        ?> id="orang_dalam" onclick="show5();" value="Tidak">Tidak</label>
                                     <div id="div3" style="display: none">
                                         <textarea type="text" class="form-control" id="ket_orangdalam" name="ket_orangdalam" placeholder="Sebutkan siap keluarga atau kerabat anda" ></textarea>
                                     </div>
@@ -478,9 +471,11 @@
                             <div class="col-md-9">
                                 <select class="form-control select2" name="informasi_dari" style="width: 100%;"> 
                                     <option selected="" value="">--Silahkan Pilih--</option>
-                                   <?php $c = count($sorching); for($s=0;$s<$c;$s++) { ?>
-                                    <option value="<?php echo $sorching[$s]['sorching'] ?>"><?php echo $sorching[$s]['sorching'] ?></option>
-                                   <?php } ?>
+                                    <?php $c = count($sorching);
+                                    for ($s = 0; $s < $c; $s++) {
+                                        ?>
+                                        <option value="<?php echo $sorching[$s]['sorching'] ?>"><?php echo $sorching[$s]['sorching'] ?></option>
+<?php } ?>
                                 </select>
                             </div>
                         </div>
@@ -768,15 +763,15 @@
                                 <select name="tingkat_sekolah" class="form-control">
                                     <option value="">--Pilih--</option>
                                     <option  value="sd">SD</option>
-                                        <option value="smp">SMP</option>
-                                        <option value="sma">SMA/SMK</option>
-                                        <option value="d1">D1</option>
-                                        <option value="d2">D2</option>
-                                        <option value="d3">D3</option>
-                                        <option value="s1">S1</option>
-                                        <option value="s2">S2</option>
-                                        <option value="s3">S3</option>
-                                        <option value="lainnya">Lainnya</option>
+                                    <option value="smp">SMP</option>
+                                    <option value="sma">SMA/SMK</option>
+                                    <option value="d1">D1</option>
+                                    <option value="d2">D2</option>
+                                    <option value="d3">D3</option>
+                                    <option value="s1">S1</option>
+                                    <option value="s2">S2</option>
+                                    <option value="s3">S3</option>
+                                    <option value="lainnya">Lainnya</option>
                                 </select>
                             </div>
                         </div>
@@ -937,7 +932,7 @@
                                         for ($i = 0; $i < $total; $i++) {
                                             ?>
                                             <option value="<?php echo $posisi[$i]['nama_posisi']; ?>"><?php echo $posisi[$i]['nama_posisi']; ?> (<?php echo $posisi[$i]['level']; ?>)</option>
-                                        <?php } ?>
+<?php } ?>
                                     </select>
                                 </div>
                             </div>
@@ -949,7 +944,8 @@
                                         <option value="" >Pilih Cabang</option>
                                         <?php
                                         foreach ($dropdownprov as $a) {
-                                            echo '<option value="' . $a["id_cabang"] . '">' . $a["nama_cabang"] . '</option>';}
+                                            echo '<option value="' . $a["id_cabang"] . '">' . $a["nama_cabang"] . '</option>';
+                                        }
                                         ?>
                                     </select>
                                 </div>
@@ -1059,7 +1055,7 @@
                 if (data.status)
                 {
                     $('#modal_add_kemampuan_bahasa').modal('hide');
-                    location.reload();
+                    $("#bahasa").load(" #bahasa");
                 } else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
@@ -1107,7 +1103,7 @@
                 if (data.status)
                 {
                     $('#modal_add_kursus').modal('hide');
-                    location.reload();
+                    $("#kursus").load(" #kursus");
                 } else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
@@ -1155,7 +1151,7 @@
                 if (data.status)
                 {
                     $('#modal_add_pendidikan').modal('hide');
-                    location.reload();
+                    $("#pendidikan").load(" #pendidikan");
                 } else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
@@ -1203,7 +1199,7 @@
                 if (data.status)
                 {
                     $('#modal_add_kemampuan_komputer').modal('hide');
-                    location.reload();
+                    $("#komputer").load(" #komputer");
                 } else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
@@ -1251,7 +1247,7 @@
                 if (data.status)
                 {
                     $('#modal_add_pengalaman').modal('hide');
-                    location.reload();
+                    $("#pengalaman").load(" #pengalaman");
                 } else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
@@ -1299,7 +1295,7 @@
                 if (data.status)
                 {
                     $('#modal_add_keluarga').modal('hide');
-                    location.reload();
+                    $("#keluarga").load(" #keluarga");
                 } else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
@@ -1347,7 +1343,7 @@
                 if (data.status)
                 {
                     $('#modal_add_referensi').modal('hide');
-                    location.reload();
+                    $("#referensi").load(" #referensi");
                 } else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
@@ -1396,7 +1392,7 @@
                 if (data.status)
                 {
                     $('#modal_add_organisasi').modal('hide');
-                    location.reload();
+                    $("#organisasi").load(" #organisasi");
                 } else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
@@ -1434,7 +1430,7 @@
                 if (data.status)
                 {
                     $('#modal_form_data_pribadi').modal('hide');
-                    location.reload();
+                    $("#datapribadi").load(" #datapribadi");
                 } else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
@@ -1471,7 +1467,7 @@
                 if (data.status)
                 {
                     $('#modal_edit_darurat_call').modal('hide');
-                    location.reload();
+                    $("#darurat").load(" #darurat");
                 } else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
@@ -1654,7 +1650,7 @@
                 if (data.status)
                 {
                     $('#modal_edit_posisi_penempatan').modal('hide');
-                    location.reload();
+                    $("#posisipenempatan").load(" #posisipenempatan");
                 } else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
@@ -1699,44 +1695,251 @@
             }
         });
     }
+
+    function delete_kursus(id_kursus)
+    {
+        if (confirm('Are you sure delete this data?'))
+        {
+            // ajax delete data to database
+            $.ajax({
+                url: "<?php echo site_url('kandidat/view_all_kandidat/delete_view_kursus') ?>/" + id_kursus,
+                type: "POST",
+                dataType: "JSON",
+                success: function (data)
+                {
+                    $("#kursus").load(" #kursus");
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    alert('Error deleting data');
+                }
+            });
+
+        }
+    }
+    function delete_organisasi(id_organisasi)
+    {
+        if (confirm('Are you sure delete this data?'))
+        {
+            // ajax delete data to database
+            $.ajax({
+                url: "<?php echo site_url('kandidat/view_all_kandidat/delete_view_organisasi') ?>/" + id_organisasi,
+                type: "POST",
+                dataType: "JSON",
+                success: function (data)
+                {
+                    $("#organisasi").load(" #organisasi");
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    alert('Error deleting data');
+                }
+            });
+
+        }
+    }
+    function delete_referensi(id_referensi)
+    {
+        if (confirm('Are you sure delete this data?'))
+        {
+            // ajax delete data to database
+            $.ajax({
+                url: "<?php echo site_url('kandidat/view_all_kandidat/delete_view_referensi') ?>/" + id_referensi,
+                type: "POST",
+                dataType: "JSON",
+                success: function (data)
+                {
+                    $("#referensi").load(" #referensi");
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    alert('Error deleting data');
+                }
+            });
+
+        }
+    }
+    function delete_keluarga(id_keluarga)
+    {
+        if (confirm('Are you sure delete this data?'))
+        {
+            // ajax delete data to database
+            $.ajax({
+                url: "<?php echo site_url('kandidat/view_all_kandidat/delete_view_keluarga') ?>/" + id_keluarga,
+                type: "POST",
+                dataType: "JSON",
+                success: function (data)
+                {
+                    $("#keluarga").load(" #keluarga");
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    alert('Error deleting data');
+                }
+            });
+
+        }
+    }
+    function delete_pendidikan(id_pendidikan_formal)
+    {
+        if (confirm('Are you sure delete this data?'))
+        {
+            // ajax delete data to database
+            $.ajax({
+                url: "<?php echo site_url('kandidat/view_all_kandidat/delete_view_pendidikan') ?>/" + id_pendidikan_formal,
+                type: "POST",
+                dataType: "JSON",
+                success: function (data)
+                {
+                    $("#pendidikan").load(" #pendidikan");
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    alert('Error deleting data');
+                }
+            });
+
+        }
+    }
+    function delete_pengalaman(id_pengalaman_kerja)
+    {
+        if (confirm('Are you sure delete this data?'))
+        {
+            // ajax delete data to database
+            $.ajax({
+                url: "<?php echo site_url('kandidat/view_all_kandidat/delete_view_pengalaman') ?>/" + id_pengalaman_kerja,
+                type: "POST",
+                dataType: "JSON",
+                success: function (data)
+                {
+                    $("#pengalaman").load(" #pengalaman");
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    alert('Error deleting data');
+                }
+            });
+
+        }
+    }
+    function delete_komputer(id_kemampuan_komputer)
+    {
+        if (confirm('Are you sure delete this data?'))
+        {
+            // ajax delete data to database
+            $.ajax({
+                url: "<?php echo site_url('kandidat/view_all_kandidat/delete_view_kemkomputer') ?>/" + id_kemampuan_komputer,
+                type: "POST",
+                dataType: "JSON",
+                success: function (data)
+                {
+                    $("#komputer").load(" #komputer");
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    alert('Error deleting data');
+                }
+            });
+
+        }
+    }
+    function delete_bahasa(id_kemampuan_bahasa)
+    {
+        if (confirm('Are you sure delete this data?'))
+        {
+            // ajax delete data to database
+            $.ajax({
+                url: "<?php echo site_url('kandidat/view_all_kandidat/delete_view_kembahasa') ?>/" + id_kemampuan_bahasa,
+                type: "POST",
+                dataType: "JSON",
+                success: function (data)
+                {
+                    $("#bahasa").load(" #bahasa");
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    alert('Error deleting data');
+                }
+            });
+
+        }
+    }
+
+    function update_pas_foto()
+    {
+        $('#btnSavePassfoto').text('saving...');
+        $('#btnSavePassfoto').attr('disabled', true);
+        var url;
+        url = "<?php echo site_url('kandidat/view_all_kandidat/ajax_update_pass_foto') ?>";
+        $.ajax({
+            url: url,
+            type: "POST",
+            data: $('#pass').serialize(),
+            dataType: "JSON",
+            success: function (data)
+            {
+                if (data.status)
+                {
+                    $("#pass_foto").load(" #pass_foto");
+                } else
+                {
+                    for (var i = 0; i < data.inputerror.length; i++)
+                    {
+                        $('[name="' + data.inputerror[i] + '"]').parent().parent().addClass('has-error');
+                        $('[name="' + data.inputerror[i] + '"]').next().text(data.error_string[i]);
+                    }
+                }
+                $('#btnSavePassfoto').text('save');
+                $('#btnSavePassfoto').attr('disabled', false);
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+                alert('Error adding/update data');
+                $('#btnSavePassfoto').text('save');
+                $('#btnSavePassfoto').attr('disabled', false);
+            }
+        });
+    }
+
 </script>
 <div class="box-footer">
     <a download href="<?php echo base_url() ?>report/report_kandidat/create_pdf_as_cv_by_id/<?php echo $kandidat[0]['id_kandidat'] ?>">Print <img width="20" src="<?php echo base_url() ?>/assets/images/pdf.png"></a>
 </div><br>
 <section class="col-lg-6 connectedSortable">
-    <div class="box box-info">
-        <div class="box-header with-border">
-            <h3 class="box-title">DATA PRIBADI</h3>
-            <div class="box-tools pull-right">
+    <div id="datapribadi">
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">DATA PRIBADI</h3>
+                <div class="box-tools pull-right">
 <?php echo '<a href="javascript:void(0)" class="btn btn-box-tool" title="Edit" onclick="edit_person(' . "'" . $kandidat[0]['id_kandidat'] . "'" . ')"><i class="glyphicon glyphicon-pencil"></i></a>'; ?>
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
             </div>
-        </div>
 
-        <div class="box-body">
-            <strong> Nama Lengkap</strong> : <?php echo $kandidat[0]['nama_lengkap'] ?><br>
-            <strong> No Telepon </strong>  : <?php echo $kandidat[0]['no_tlp'] ?><br>
-            <strong> No HP  </strong>      : <?php echo $kandidat[0]['no_hp'] ?><br>
-            <strong> Email </strong>       : <?php echo $kandidat[0]['email'] ?><br>
-            <strong> KTP  </strong>        : <?php echo $kandidat[0]['no_ktp'] ?> <span class="label label-success">Aktif sampai : <?php echo indonesian_date($kandidat[0]['ktp_expired_date']) ?> </span><br>
-            <strong> SIM  </strong>        : <?php echo $kandidat[0]['no_sim'] ?> <span class="label label-success">Aktif sampai : <?php echo indonesian_date($kandidat[0]['sim_expired_date']) ?> </span><br>
-            <strong> Alamat Lengkap </strong>    : <?php echo $kandidat[0]['alamat'] ?><br>
-            <strong> Agama </strong>      : <?php echo $kandidat[0]['agama'] ?><br>
-            <strong> Hobby </strong>  : <?php echo $kandidat[0]['hobby'] ?><br>
-            <strong> Pengalaman Memimpin  </strong>      : <?php echo $kandidat[0]['pengalaman_memimpin'] ?><br>
-            <strong> Kewarganegaraan  </strong>     : <?php echo $kandidat[0]['kewarganegaraan'] ?><br>
-            <strong> Pendidikan  </strong>     : <?php echo $kandidat[0]['pendidikan_level'] ?><br>
-            <strong> Suku     </strong>  : <?php echo $kandidat[0]['suku'] ?><br>
-            <strong> Golongan Darah </strong>      : <?php echo $kandidat[0]['gol_darah'] ?><br>
-            <strong> Tinggi/Berat   </strong>    : <?php echo $kandidat[0]['tinggi_badan'] ?> Cm/<?php echo $kandidat[0]['berat_badan'] ?> Kg<br>
-            <strong> Tempat Tinggal  </strong>     : <?php echo $kandidat[0]['tempat_tinggal'] ?><br>
-            <strong> Tempat Lahir   </strong>    : <?php echo $kandidat[0]['tempat_lahir'] ?><br>
-            <strong> Tanggal Lahir  </strong>     :  <span class="label label-success"><?php echo indonesian_date($kandidat[0]['tgl_lahir']) ?></span><br>
-            <strong> Jenis Kelamin  </strong>     : <?php echo $kandidat[0]['gender'] ?><br>
-        </div>
-    </div>
+            <div class="box-body">
+                <strong> Nama Lengkap</strong> : <?php echo $kandidat[0]['nama_lengkap'] ?><br>
+                <strong> No Telepon </strong>  : <?php echo $kandidat[0]['no_tlp'] ?><br>
+                <strong> No HP  </strong>      : <?php echo $kandidat[0]['no_hp'] ?><br>
+                <strong> Email </strong>       : <?php echo $kandidat[0]['email'] ?><br>
+                <strong> KTP  </strong>        : <?php echo $kandidat[0]['no_ktp'] ?> <span class="label label-success">Aktif sampai : <?php echo indonesian_date($kandidat[0]['ktp_expired_date']) ?> </span><br>
+                <strong> SIM  </strong>        : <?php echo $kandidat[0]['no_sim'] ?> <span class="label label-success">Aktif sampai : <?php echo indonesian_date($kandidat[0]['sim_expired_date']) ?> </span><br>
+                <strong> Alamat Lengkap </strong>    : <?php echo $kandidat[0]['alamat'] ?><br>
+                <strong> Agama </strong>      : <?php echo $kandidat[0]['agama'] ?><br>
+                <strong> Hobby </strong>  : <?php echo $kandidat[0]['hobby'] ?><br>
+                <strong> Pengalaman Memimpin  </strong>      : <?php echo $kandidat[0]['pengalaman_memimpin'] ?><br>
+                <strong> Kewarganegaraan  </strong>     : <?php echo $kandidat[0]['kewarganegaraan'] ?><br>
+                <strong> Pendidikan  </strong>     : <?php echo $kandidat[0]['pendidikan_level'] ?><br>
+                <strong> Suku     </strong>  : <?php echo $kandidat[0]['suku'] ?><br>
+                <strong> Golongan Darah </strong>      : <?php echo $kandidat[0]['gol_darah'] ?><br>
+                <strong> Tinggi/Berat   </strong>    : <?php echo $kandidat[0]['tinggi_badan'] ?> Cm/<?php echo $kandidat[0]['berat_badan'] ?> Kg<br>
+                <strong> Tempat Tinggal  </strong>     : <?php echo $kandidat[0]['tempat_tinggal'] ?><br>
+                <strong> Tempat Lahir   </strong>    : <?php echo $kandidat[0]['tempat_lahir'] ?><br>
+                <strong> Tanggal Lahir  </strong>     :  <span class="label label-success"><?php echo indonesian_date($kandidat[0]['tgl_lahir']) ?></span><br>
+                <strong> Jenis Kelamin  </strong>     : <?php echo $kandidat[0]['gender'] ?><br>
+            </div>
+        </div></div>
 
     <div class="box box-danger">
         <div class="box-header with-border">
@@ -1747,16 +1950,26 @@
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
         </div>
-        <div class="box-body">
-            <form  action="<?php echo base_url(); ?>view/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>" method="post" enctype="multipart/form-data">
+        <div class="box-body" id="pass_foto">
+            <form action="#" id="pass"  method="post" enctype="multipart/form-data">
 <?php if ($kandidat[0]['pas_foto_file'] != "") { ?>
-                    <strong>PAS FOTO</strong> :  <img src="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>" alt="<?php echo strip_tags($kandidat[0]['nama_lengkap']) ?>" height="100" width="100">
-                    <a target="_blank" download="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>" href="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>">Lihat/Download FOTO</a>
-
-                    <a href="<?php echo base_url() ?>delete-pass-foto/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>"> <button type="button" class="btn btn-box-tool" ><i class="fa fa-times"></i></button>
-                    </a><br> <?php } else { ?>
-                    <label>Pas Foto : (.jpg/.png/.jpeg) <input hidden name="nama_lengkap" value="<?php echo slug($kandidat[0]['nama_lengkap']) ?>"><input type="file" name="pas_foto_file"></label><input value="submit" name="submit" type="submit"><?php } ?>
-            </form> <hr>
+                
+                        <strong>PAS FOTO</strong> :  <img src="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>" alt="<?php echo strip_tags($kandidat[0]['nama_lengkap']) ?>" height="100" width="100">
+                        <a target="_blank" download="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>" href="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>">Lihat/Download FOTO</a>
+                        <a href="<?php echo base_url() ?>delete-pass-foto/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>"> 
+                        </a><br> <?php } else { ?>
+                        <label>Pas Foto : (.jpg/.png/.jpeg) 
+                        <input hidden name="nama_lengkap" value="<?php echo slug($kandidat[0]['nama_lengkap']) ?>">
+                        <input type="file" name="pas_foto_file">
+                        <input type="hidden" value="<?php echo $this->uri->segment(2);?>" name="id_kandidat"></label>
+                        <button type="button" id="btnSavePassfoto" onclick="update_pas_foto()" class="btn btn-primary">Save</button>
+<?php } ?>
+                </form> <hr>
+                
+                
+                
+                
+                
             <form  action="<?php echo base_url(); ?>view/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>" method="post" enctype="multipart/form-data">
 <?php if ($kandidat[0]['ktp_scan_file'] != "") { ?><strong>KTP SCAN</strong> :  <img src="<?php echo base_url() ?>upload/kadidat/ktp/<?php echo $kandidat[0]['ktp_scan_file'] ?>" alt="<?php echo strip_tags($kandidat[0]['nama_lengkap']) ?>" height="100" width="100"><a target="_blank" download="<?php echo base_url() ?>upload/kadidat/ktp/<?php echo $kandidat[0]['ktp_scan_file'] ?>" href="<?php echo base_url() ?>upload/kadidat/ktp/<?php echo $kandidat[0]['ktp_scan_file'] ?>">Lihat/Download KTP</a>
                     <a href="<?php echo base_url() ?>delete-ktp/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>"> <button type="button" class="btn btn-box-tool" ><i class="fa fa-times"></i></button><br><br>
@@ -1787,75 +2000,78 @@
         </div>
     </div>
 
+    <div id="pengalaman">
+        <div class="box box-success">
+            <div class="box-header with-border">
+                <h3 class="box-title">PENGALAMAN KERJA</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" onclick="add_pengalaman()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
 
-    <div class="box box-success">
-        <div class="box-header with-border">
-            <h3 class="box-title">PENGALAMAN KERJA</h3>
-            <div class="box-tools pull-right">
-                <button type="button" onclick="add_pengalaman()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-        </div>
-<?php
-$total_org = count($pengalaman);
-for ($a = 0; $a < $total_org; $a++) {
-    if ($pengalaman[$a]['nama_perusahaan'] != "") {
-        if ($pengalaman[$a]['tahun_keluar'] == "Sekarang") {
-            $sampai = $pengalaman[$a]['tahun_keluar'];
-        } else {
-            $sampai = indonesian_date($pengalaman[$a]['tahun_keluar']);
-        }
-        ?>
-                <div id="parent" >   <div id="wide" class="box-body">
-                        <strong>Nama Perusahaan</strong> : <?php echo $pengalaman[$a]['nama_perusahaan'] ?><br>
-                        <strong>Alamat Perusahaan</strong> : <?php echo $pengalaman[$a]['alamat_perusahaan'] ?><br>
-                        <strong>Jabatan terakhir</strong> : <?php echo $pengalaman[$a]['jabatan_terkahir'] ?><br>
-                        <strong>Gaji Terakhir</strong> : <?php echo $pengalaman[$a]['gaji'] ?><br>
-                        <strong>Tahun Masuk</strong> : <?php echo indonesian_date($pengalaman[$a]['tahun_masuk']) ?><br>
-                        <strong>Sampai Tahun</strong> : <?php echo $sampai ?><br>
-                        <strong>Tugas Dan Tanggung Jawab</strong> : <?php echo $pengalaman[$a]['tugas_tanggung_jawab'] ?><br>
-                        <strong>Alasan Keluar</strong> : <?php echo $pengalaman[$a]['alasan_keluar'] ?><br>
-                    </div>
-                    <div id="narrow" style="margin-top: 20px; "> <a href="<?php echo base_url() ?>delete-pengalaman/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>/<?php echo $pengalaman[$a]['id_pengalaman_kerja'] ?>"> <i class="glyphicon glyphicon-trash"></i></a></div>
-                </div> <hr>
-        <?php
-    }
-}
-?>
-    </div>
-    <div class="box box-default">
-        <div class="box-header with-border">
-            <h3 class="box-title">PENDIDIKAN</h3>
-            <div class="box-tools pull-right">
-                <button type="button" onclick="add_pendidikan()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-        </div>
-<?php
-$total_org = count($pendidikan);
-for ($a = 0; $a < $total_org; $a++) {
-    if ($pendidikan[$a]['nama_sekolah'] != "") {
-        ?>
-                <div id="parent" >   <div id="wide" class="box-body">
-                        <strong>Tingkak Sekolah</strong> : <?php echo $pendidikan[$a]['tingkat_sekolah'] ?><br>
-                        <strong>Nama Sekolah</strong> : <?php echo $pendidikan[$a]['nama_sekolah'] ?><br>
-                        <strong>Tempat Sekolah</strong> : <?php echo $pendidikan[$a]['tempat_sekolah'] ?><br>
-                        <strong>Tanggal Masuk</strong> : <?php echo indonesian_date($pendidikan[$a]['tanggal_masuk']) ?><br>
-                        <strong>Tanggal Lulus</strong> : <?php echo indonesian_date($pendidikan[$a]['tanggal_lulus']) ?><br>
-                    </div>
-                    <div id="narrow" style="margin-top: 20px; "> <a href="<?php echo base_url() ?>delete-pendidikan/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>/<?php echo $pendidikan[$a]['id_pendidikan_formal'] ?>"> <i class="glyphicon glyphicon-trash"></i></a></div>
-                </div> <hr><?php
+            <?php
+            $total_org = count($pengalaman);
+            for ($a = 0; $a < $total_org; $a++) {
+                if ($pengalaman[$a]['nama_perusahaan'] != "") {
+                    if ($pengalaman[$a]['tahun_keluar'] == "Sekarang") {
+                        $sampai = $pengalaman[$a]['tahun_keluar'];
+                    } else {
+                        $sampai = indonesian_date($pengalaman[$a]['tahun_keluar']);
+                    }
+                    ?>
+                    <div id="parent" > <div id="wide" class="box-body">
+                            <strong>Nama Perusahaan</strong> : <?php echo $pengalaman[$a]['nama_perusahaan'] ?><br>
+                            <strong>Alamat Perusahaan</strong> : <?php echo $pengalaman[$a]['alamat_perusahaan'] ?><br>
+                            <strong>Jabatan terakhir</strong> : <?php echo $pengalaman[$a]['jabatan_terkahir'] ?><br>
+                            <strong>Gaji Terakhir</strong> : <?php echo $pengalaman[$a]['gaji'] ?><br>
+                            <strong>Tahun Masuk</strong> : <?php echo indonesian_date($pengalaman[$a]['tahun_masuk']) ?><br>
+                            <strong>Sampai Tahun</strong> : <?php echo $sampai ?><br>
+                            <strong>Tugas Dan Tanggung Jawab</strong> : <?php echo $pengalaman[$a]['tugas_tanggung_jawab'] ?><br>
+                            <strong>Alasan Keluar</strong> : <?php echo $pengalaman[$a]['alasan_keluar'] ?><br>
+                        </div>
+                        <div id="narrow" style="margin-top: 20px; "> <a href="javascript:void(0)"  onclick="delete_pengalaman('<?php echo $pengalaman[$a]['id_pengalaman_kerja'] ?>')"> <i class="glyphicon glyphicon-trash"></i></a></div>
+                    </div> <hr>
+                    <?php
+                }
             }
-        }
-?><br></div>
-                
-                <div class="box box-default">
+            ?>
+        </div></div>
+    <div id="pendidikan">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">PENDIDIKAN</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" onclick="add_pendidikan()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <?php
+            $total_org = count($pendidikan);
+            for ($a = 0; $a < $total_org; $a++) {
+                if ($pendidikan[$a]['nama_sekolah'] != "") {
+                    ?>
+                    <div id="parent" >   <div id="wide" class="box-body">
+                            <strong>Tingkak Sekolah</strong> : <?php echo $pendidikan[$a]['tingkat_sekolah'] ?><br>
+                            <strong>Nama Sekolah</strong> : <?php echo $pendidikan[$a]['nama_sekolah'] ?><br>
+                            <strong>Tempat Sekolah</strong> : <?php echo $pendidikan[$a]['tempat_sekolah'] ?><br>
+                            <strong>Tanggal Masuk</strong> : <?php echo indonesian_date($pendidikan[$a]['tanggal_masuk']) ?><br>
+                            <strong>Tanggal Lulus</strong> : <?php echo indonesian_date($pendidikan[$a]['tanggal_lulus']) ?><br>
+                        </div>
+                        <div id="narrow" style="margin-top: 20px; "> <a href="javascript:void(0)"  onclick="delete_pendidikan('<?php echo $pendidikan[$a]['id_pendidikan_formal'] ?>')"> <i class="glyphicon glyphicon-trash"></i></a></div>
+
+                    </div> <hr><?php
+                }
+            }
+            ?><br></div></div>
+
+    <div class="box box-default">
         <div class="box-header with-border">
             <h3 class="box-title">Interview History</h3>
             <div class="box-tools pull-right">
@@ -1868,7 +2084,7 @@ for ($a = 0; $a < $total_org; $a++) {
         $to = count($jadwal);
         for ($a = 0; $a < $to; $a++) {
             ?>
-                      <?php
+            <?php
             if ($jadwal[$a]['status_kandidat'] == 1) {
                 $span = '<span>Baru</span>';
             } else if ($jadwal[$a]['status_kandidat'] == 2) {
@@ -1892,39 +2108,41 @@ for ($a = 0; $a < $total_org; $a++) {
             <div id="parent" >
                 <div id="wide" class="box-body">
                     Tanggal Interview : <?php echo indonesian_dates($jadwal[$a]['tanggal_interview']) ?><br>
-            Tempat : <?php echo $jadwal[$a]['tempat_interview'] ?> <br>
-            Keterangan : <?php echo $jadwal[$a]['keterangan'] ?> <br>
-            Nama Interviewer : <?php echo $jadwal[$a]['interviewer'] ?><br>
+                    Tempat : <?php echo $jadwal[$a]['tempat_interview'] ?> <br>
+                    Keterangan : <?php echo $jadwal[$a]['keterangan'] ?> <br>
+                    Nama Interviewer : <?php echo $jadwal[$a]['interviewer'] ?><br>
                 </div></div> <hr>
-    <?php }
-?>
-    
+        <?php }
+        ?>
+
     </div>
 </section>
 <section class="col-lg-6 connectedSortable">
-    <div class="box box-danger">
-        <div class="box-header with-border">
-            <h3 class="box-title">KONTAK DARURAT ?</h3>
-            <div class="box-tools pull-right">
+    <div id="darurat">
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">KONTAK DARURAT ?</h3>
+                <div class="box-tools pull-right">
 <?php echo '<a href="javascript:void(0)" class="btn btn-box-tool" title="Edit" onclick="edit_darurat_call(' . "'" . $kandidat[0]['id_kandidat'] . "'" . ')"><i class="glyphicon glyphicon-pencil"></i></a>'; ?>
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
             </div>
-        </div>
-        <div class="box-body">
-            <strong>Nama Lengkap</strong> : <?php echo $darurat[0]['nama_lengkap_d'] ?><br>
-            <strong>No Telepon</strong> : <?php echo $darurat[0]['no_telp_rumah_d'] ?><br>
-            <strong>No hp</strong> : <?php echo $darurat[0]['no_hp_d'] ?><br>
-            <strong>Hubungan</strong> : <?php echo $darurat[0]['hubungan_d'] ?><br>
-            <strong>Alamat</strong> : <?php echo $darurat[0]['alamat_d'] ?><br>
-        </div>
-    </div>
+            <div class="box-body">
+                <strong>Nama Lengkap</strong> : <?php echo $darurat[0]['nama_lengkap_d'] ?><br>
+                <strong>No Telepon</strong> : <?php echo $darurat[0]['no_telp_rumah_d'] ?><br>
+                <strong>No hp</strong> : <?php echo $darurat[0]['no_hp_d'] ?><br>
+                <strong>Hubungan</strong> : <?php echo $darurat[0]['hubungan_d'] ?><br>
+                <strong>Alamat</strong> : <?php echo $darurat[0]['alamat_d'] ?><br>
+            </div>
+        </div></div>
+
     <div  id="keterangan_lain" class="box box-warning">
         <div class="box-header with-border">
             <h3 class="box-title">KETERANGAN LAIN</h3>
             <div class="box-tools pull-right">
-            <?php echo '<a href="javascript:void(0)" class="btn btn-box-tool" title="Edit" onclick="edit_keterangan_lain(' . "'" . $kandidat[0]['id_kandidat'] . "'" . ')"><i class="glyphicon glyphicon-pencil"></i></a>'; ?>
+<?php echo '<a href="javascript:void(0)" class="btn btn-box-tool" title="Edit" onclick="edit_keterangan_lain(' . "'" . $kandidat[0]['id_kandidat'] . "'" . ')"><i class="glyphicon glyphicon-pencil"></i></a>'; ?>
 
                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -1935,226 +2153,228 @@ for ($a = 0; $a < $total_org; $a++) {
             <strong>Pernah Mengidap Penyakit</strong> : <?php echo $ketla[0]['penyakit'] ?>
             <?php if ($ketla[0]['ket_penyakit'] != "" && $ketla[0]['penyakit'] == "Ya") { ?>
                 <br><strong></strong> <?php echo $ketla[0]['ket_penyakit'] ?>
-<?php } ?><br>
+            <?php } ?><br>
             <strong>Pernah Dipidana</strong> : <?php echo $ketla[0]['pidana'] ?>
-<?php if ($ketla[0]['ket_kriminal'] != "" && $ketla[0]['pidana'] == "Ya") { ?>
+            <?php if ($ketla[0]['ket_kriminal'] != "" && $ketla[0]['pidana'] == "Ya") { ?>
                 <br><strong></strong><?php echo $ketla[0]['ket_kriminal'] ?>
 <?php } ?><br>
             <strong>Gaji Yang Diharapkan</strong> : <?php echo $ketla[0]['gaji_diharapkan'] ?><br>
             <strong>Mulai Kerja</strong> : <?php echo $ketla[0]['mulai_kerja'] ?><br>
             <strong>Apakah ada keluarga/ Saudara Anda yang bekerja di PT. Valdo ?</strong> : <?php echo $ketla[0]['orang_dalam'] ?>
-<?php if ($ketla[0]['ket_orangdalam'] != "" && $ketla[0]['orang_dalam'] == "Ya") { ?>
+            <?php if ($ketla[0]['ket_orangdalam'] != "" && $ketla[0]['orang_dalam'] == "Ya") { ?>
                 <br><strong></strong> <?php echo $ketla[0]['ket_orangdalam'] ?><br>
 <?php } ?>
             <strong>Kelemahan</strong> : <?php echo $ketla[0]['kelemahan'] ?><br>
             <strong>Kelebihan</strong> : <?php echo $ketla[0]['kelebihan'] ?><br>
         </div>
     </div>
-    <div  class="box box-default">
-        <div class="box-header with-border">
-            <h3 class="box-title">PENGALAMAN ORGANISASI</h3>
-            <div class="box-tools pull-right">
-                <button type="button" onclick="add_organisasi()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+    <div id="organisasi">
+        <div  class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">PENGALAMAN ORGANISASI</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" onclick="add_organisasi()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
             </div>
-        </div>
-        <?php
-        $total_org = count($organisasi);
-        for ($a = 0; $a < $total_org; $a++) {
-            if ($organisasi[$a]['nama_organisasi'] != "") {
-                ?>
-                <div id="parent" > <div id="wide" class="box-body">
-                        <strong>Nama Organisasi</strong> : <?php echo $organisasi[$a]['nama_organisasi'] ?><br>
-                        <strong>Jenis Organisasi</strong> : <?php echo $organisasi[$a]['jenis_organisasi'] ?><br>
-                        <strong>Tahun Organisasi</strong> : <?php echo indonesian_date($organisasi[$a]['tahun']) ?><br>
-                        <strong>Jabatan</strong> : <?php echo $organisasi[$a]['jabatan'] ?><br>
-                    </div>
-                    <div id="narrow" style="margin-top: 20px; "> <a href="<?php echo base_url() ?>delete-organisasi/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>/<?php echo $organisasi[$a]['id_organisasi'] ?>"> <i class="glyphicon glyphicon-trash"></i></a></div>
-                </div> <hr><?php
+            <?php
+            $total_org = count($organisasi);
+            for ($a = 0; $a < $total_org; $a++) {
+                if ($organisasi[$a]['nama_organisasi'] != "") {
+                    ?>
+                    <div id="parent" > <div id="wide" class="box-body">
+                            <strong>Nama Organisasi</strong> : <?php echo $organisasi[$a]['nama_organisasi'] ?><br>
+                            <strong>Jenis Organisasi</strong> : <?php echo $organisasi[$a]['jenis_organisasi'] ?><br>
+                            <strong>Tahun Organisasi</strong> : <?php echo indonesian_date($organisasi[$a]['tahun']) ?><br>
+                            <strong>Jabatan</strong> : <?php echo $organisasi[$a]['jabatan'] ?><br>
+                        </div>
+                        <div id="narrow" style="margin-top: 20px; "> <a href="javascript:void(0)"  onclick="delete_organisasi('<?php echo $organisasi[$a]['id_organisasi'] ?>')"> <i class="glyphicon glyphicon-trash"></i></a></div>
+                    </div> <hr><?php
+                }
             }
-        }
-        ?>
-    </div>
-    <div class="box box-primary">
-        <div class="box-header with-border">
-            <h3 class="box-title">REFERENSI</h3>
-            <div class="box-tools pull-right">
-                <button type="button" onclick="add_referensi()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-        </div>
-        <?php
-        $total_org = count($referensi);
-        for ($a = 0; $a < $total_org; $a++) {
-            if ($referensi[$a]['nama_lengkap_ref'] != "") {
-                ?>
-                <div id="parent" >   <div id="wide" class="box-body">
-                        <strong>Nama Referensi</strong> : <?php echo $referensi[$a]['nama_lengkap_ref'] ?><br>
-                        <strong>Perusahaan </strong> : <?php echo $referensi[$a]['perusahaan_ref'] ?><br>
-                        <strong>Hubungan</strong> : <?php echo $referensi[$a]['hubungan_ref'] ?><br>
-                        <strong>Telepon Referensi</strong> : <?php echo $referensi[$a]['telp_ref'] ?><br>
-                        <strong>Alamat Referensi</strong> : <?php echo $referensi[$a]['alamat_ref'] ?><br>
-                        <strong>Informasi Dari</strong> : <?php echo $referensi[$a]['informasi_dari'] ?><br>
-                    </div>
-                    <div id="narrow" style="margin-top: 20px; "> <a href="<?php echo base_url() ?>delete-referensi/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>/<?php echo $referensi[$a]['id_referensi'] ?>"> <i class="glyphicon glyphicon-trash"></i></a></div>
-                </div> <hr>
-        <?php
-    }
-}
-?>
-    </div>
-    <div class="box box-default">
-        <div class="box-header with-border">
-            <h3 class="box-title">KELUARGA</h3>
-            <div class="box-tools pull-right">
-                <button type="button" onclick="add_keluarga()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-        </div>
-        <?php
-        $total_org = count($keluarga);
-        for ($a = 0; $a < $total_org; $a++) {
-            if ($keluarga[$a]['nama_k'] != "") {
-                ?>
-                <div id="parent" >   <div id="wide" class="box-body">
-                        <strong>Posisi</strong> : <?php echo $keluarga[$a]['jenis_keluarga'] ?><br>
-                        <strong>Nama</strong> : <?php echo $keluarga[$a]['nama_k'] ?><br>
-                        <strong>Gender</strong> : <?php echo $keluarga[$a]['gender_k'] ?><br>
-                        <strong>Usia</strong> : <?php echo $keluarga[$a]['usia_k'] ?><br>
-                        <strong>Pendidikan</strong> : <?php echo $keluarga[$a]['pendidikan_k'] ?><br>
-                        <strong>Pekerjaan</strong> : <?php echo $keluarga[$a]['pekerjaan_k'] ?><br>
-                    </div>
-                    <div id="narrow" style="margin-top: 20px; "> <a href="<?php echo base_url() ?>delete-keluarga/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>/<?php echo $keluarga[$a]['id_keluarga'] ?>"> <i class="glyphicon glyphicon-trash"></i></a></div>
-                </div> <hr>
-        <?php
-    }
-}
-?>
-    </div>
-    <div class="box box-default">
-        <div class="box-header with-border">
-            <h3 class="box-title">KEMAMPUAN KOMPUTER</h3>
-            <div class="box-tools pull-right">
-                <button type="button" onclick="add_kemampuan_komputer()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-        </div>
-        <?php
-        $total_org = count($kemampuan_k);
-        for ($a = 0; $a < $total_org; $a++) {
-            if ($kemampuan_k[$a]['jenis_program'] != "") {
-                ?>
-                <div id="parent" >   <div id="wide" class="box-body">
-                        <strong>Jenis Program</strong> : <?php echo $kemampuan_k[$a]['jenis_program'] ?><br>
-                        <strong>Level Skill</strong> : <?php echo $kemampuan_k[$a]['level_skill'] ?><br>
-                    </div>
-                    <div id="narrow" style="margin-top: 20px; "> <a href="<?php echo base_url() ?>delete-kemkomputer/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>/<?php echo $kemampuan_k[$a]['id_kemampuan_komputer'] ?>"> <i class="glyphicon glyphicon-trash"></i></a></div>
-                </div> <hr>
-        <?php
-    }
-}
-?>
-    </div>
-    <div class="box box-default">
-        <div class="box-header with-border">
-            <h3 class="box-title">KEMAMPUAN BAHASA</h3>
-            <div class="box-tools pull-right">
-                <button type="button" onclick="add_kemampuan_bahasa()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-        </div>
-        <?php
-        $total_org = count($kemampuan_b);
-        for ($a = 0; $a < $total_org; $a++) {
-            if ($kemampuan_b[$a]['bahasa'] != "") {
-                ?>
-                <div id="parent" >   <div id="wide" class="box-body">
-                        <strong>Bahasa</strong> : <?php echo $kemampuan_b[$a]['bahasa'] ?><br>
-                        <strong>Membaca</strong> : <?php echo $kemampuan_b[$a]['membaca'] ?><br>
-                        <strong>Menulis</strong> : <?php echo $kemampuan_b[$a]['menulis'] ?><br>
-                        <strong>Berbicara</strong> : <?php echo $kemampuan_b[$a]['berbicara'] ?><br>
-                    </div>
-                    <div id="narrow" style="margin-top: 20px; "> <a href="<?php echo base_url() ?>delete-kembahasa/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>/<?php echo $kemampuan_b[$a]['id_kemampuan_bahasa'] ?>"> <i class="glyphicon glyphicon-trash"></i></a></div>
-                </div> <hr>
-        <?php
-    }
-}
-?>
-    </div>
-    <div class="box box-default">
-        <div class="box-header with-border">
-            <h3 class="box-title">KURSUS</h3>
-            <div class="box-tools pull-right">
-                <button type="button" onclick="add_kursus()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-        </div>
-        <?php
-        $total_kur = count($kursus);
-        for ($a = 0; $a < $total_kur; $a++) {
-            if ($kursus[$a]['jenis_kursus'] != "") {
-                ?>
-                <div id="parent" >   <div id="wide" class="box-body">
-                        <strong>Jenis Kursus</strong> : <?php echo $kursus[$a]['jenis_kursus'] ?><br>
-                        <strong>Tahun Kursus</strong> : <?php echo indonesian_date($kursus[$a]['tahun_kursus']) ?><br>
-                        <strong>Lama Kursus</strong> : <?php echo $kursus[$a]['lama_kursus'] ?><br>
-                        <strong>Penyelenggara</strong> : <?php echo $kursus[$a]['penyelenggara'] ?><br>
-                    </div>
-
-                    <div id="narrow" style="margin-top: 20px; "> <a href="<?php echo base_url() ?>delete-kursus/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>/<?php echo $kursus[$a]['id_kursus'] ?>"> <i class="glyphicon glyphicon-trash"></i></a></div>
-                </div> <hr>
-        <?php
-    }
-}
-?>
-    </div>
-
-    <div class="box box-default">
-        <div class="box-header with-border">
-            <h3 class="box-title">POSISI DAN PENEMPATAN</h3>
-            <div class="box-tools pull-right">
-
-<?php echo '<a href="javascript:void(0)" class="btn btn-box-tool" title="Edit" onclick="edit_posisi_penempatan(' . "'" . $kandidat[0]['id_kandidat'] . "'" . ')"><i class="glyphicon glyphicon-pencil"></i></a>'; ?>
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-            </div>
-        </div>
-        <?php
-        $to = count($pos_penempatan);
-
-
-        for ($a = 0; $a < $to; $a++) {
             ?>
-            <div id="parent" >
-                <div id="wide" class="box-body">
-                    <strong>Posisi Penempatan</strong> : <?php echo $pos_penempatan[$a]['posisi'] ?><br>
-                    <strong>Cabang</strong> : <?php echo $pos_penempatan[$a]['nama_cabang'] ?><br>
-                    <strong>Area</strong> : <?php echo $pos_penempatan[$a]['nama_area'] ?><br>
+        </div></div>
+    <div id="referensi">
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title">REFERENSI</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" onclick="add_referensi()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <?php
+            $total_org = count($referensi);
+            for ($a = 0; $a < $total_org; $a++) {
+                if ($referensi[$a]['nama_lengkap_ref'] != "") {
+                    ?>
+                    <div id="parent" >   <div id="wide" class="box-body">
+                            <strong>Nama Referensi</strong> : <?php echo $referensi[$a]['nama_lengkap_ref'] ?><br>
+                            <strong>Perusahaan </strong> : <?php echo $referensi[$a]['perusahaan_ref'] ?><br>
+                            <strong>Hubungan</strong> : <?php echo $referensi[$a]['hubungan_ref'] ?><br>
+                            <strong>Telepon Referensi</strong> : <?php echo $referensi[$a]['telp_ref'] ?><br>
+                            <strong>Alamat Referensi</strong> : <?php echo $referensi[$a]['alamat_ref'] ?><br>
+                            <strong>Informasi Dari</strong> : <?php echo $referensi[$a]['informasi_dari'] ?><br>
+                        </div>
+                        <div id="narrow" style="margin-top: 20px; "> <a href="javascript:void(0)"  onclick="delete_referensi('<?php echo $referensi[$a]['id_referensi'] ?>')"> <i class="glyphicon glyphicon-trash"></i></a></div>
+                    </div> <hr>
+                    <?php
+                }
+            }
+            ?>
+        </div></div>
+    <div id="keluarga">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">KELUARGA</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" onclick="add_keluarga()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <?php
+            $total_org = count($keluarga);
+            for ($a = 0; $a < $total_org; $a++) {
+                if ($keluarga[$a]['nama_k'] != "") {
+                    ?>
+                    <div id="parent" >   <div id="wide" class="box-body">
+                            <strong>Posisi</strong> : <?php echo $keluarga[$a]['jenis_keluarga'] ?><br>
+                            <strong>Nama</strong> : <?php echo $keluarga[$a]['nama_k'] ?><br>
+                            <strong>Gender</strong> : <?php echo $keluarga[$a]['gender_k'] ?><br>
+                            <strong>Usia</strong> : <?php echo $keluarga[$a]['usia_k'] ?><br>
+                            <strong>Pendidikan</strong> : <?php echo $keluarga[$a]['pendidikan_k'] ?><br>
+                            <strong>Pekerjaan</strong> : <?php echo $keluarga[$a]['pekerjaan_k'] ?><br>
+                        </div>
+                        <div id="narrow" style="margin-top: 20px; "> <a href="javascript:void(0)"  onclick="delete_keluarga('<?php echo $keluarga[$a]['id_keluarga'] ?>')"> <i class="glyphicon glyphicon-trash"></i></a></div>
+                    </div> <hr>
+                    <?php
+                }
+            }
+            ?>
+        </div></div>
+    <div id="komputer">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">KEMAMPUAN KOMPUTER</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" onclick="add_kemampuan_komputer()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <?php
+            $total_org = count($kemampuan_k);
+            for ($a = 0; $a < $total_org; $a++) {
+                if ($kemampuan_k[$a]['jenis_program'] != "") {
+                    ?>
+                    <div id="parent" >   <div id="wide" class="box-body">
+                            <strong>Jenis Program</strong> : <?php echo $kemampuan_k[$a]['jenis_program'] ?><br>
+                            <strong>Level Skill</strong> : <?php echo $kemampuan_k[$a]['level_skill'] ?><br>
+                        </div>
+                        <div id="narrow" style="margin-top: 20px; "> <a href="javascript:void(0)"  onclick="delete_komputer('<?php echo $kemampuan_k[$a]['id_kemampuan_komputer'] ?>')"> <i class="glyphicon glyphicon-trash"></i></a></div>
+                    </div> <hr>
+                    <?php
+                }
+            }
+            ?>
+        </div></div>
+    <div id="bahasa">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">KEMAMPUAN BAHASA</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" onclick="add_kemampuan_bahasa()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <?php
+            $total_org = count($kemampuan_b);
+            for ($a = 0; $a < $total_org; $a++) {
+                if ($kemampuan_b[$a]['bahasa'] != "") {
+                    ?>
+                    <div id="parent" >   
+                        <div id="wide" class="box-body">
+                            <strong>Bahasa</strong> : <?php echo $kemampuan_b[$a]['bahasa'] ?><br>
+                            <strong>Membaca</strong> : <?php echo $kemampuan_b[$a]['membaca'] ?><br>
+                            <strong>Menulis</strong> : <?php echo $kemampuan_b[$a]['menulis'] ?><br>
+                            <strong>Berbicara</strong> : <?php echo $kemampuan_b[$a]['berbicara'] ?><br>
+                        </div>        <div id="narrow" style="margin-top: 20px; "> <a href="javascript:void(0)"  onclick="delete_bahasa('<?php echo $kemampuan_b[$a]['id_kemampuan_bahasa'] ?>')"> <i class="glyphicon glyphicon-trash"></i></a></div>
 
-                </div></div> <hr>
-    <?php }
-?>
+                    </div>
+                    <hr>
+                    <?php
+                }
+            }
+            ?></div></div>
+
+    <div id="kursus">
+        <div class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">KURSUS</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" onclick="add_kursus()" class="btn btn-box-tool"><i class="fa fa-plus-square"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+            <?php
+            $total_kur = count($kursus);
+            for ($a = 0; $a < $total_kur; $a++) {
+                if ($kursus[$a]['jenis_kursus'] != "") {
+                    ?>
+                    <div id="parent" >   <div id="wide" class="box-body">
+                            <strong>Jenis Kursus</strong> : <?php echo $kursus[$a]['jenis_kursus'] ?><br>
+                            <strong>Tahun Kursus</strong> : <?php echo indonesian_date($kursus[$a]['tahun_kursus']) ?><br>
+                            <strong>Lama Kursus</strong> : <?php echo $kursus[$a]['lama_kursus'] ?><br>
+                            <strong>Penyelenggara</strong> : <?php echo $kursus[$a]['penyelenggara'] ?><br>
+                        </div>
+
+                        <div id="narrow" style="margin-top: 20px; "> <a href="javascript:void(0)"  onclick="delete_kursus('<?php echo $kursus[$a]['id_kursus'] ?>')"> <i class="glyphicon glyphicon-trash"></i></a></div>
+                    </div> <hr>
+                    <?php
+                }
+            }
+            ?></div>
     </div>
-    
+
+    <div id="posisipenempatan">
+        <div id="posisipenempatan" class="box box-default">
+            <div class="box-header with-border">
+                <h3 class="box-title">POSISI DAN PENEMPATAN</h3>
+                <div class="box-tools pull-right">
+<?php echo '<a href="javascript:void(0)" class="btn btn-box-tool" title="Edit" onclick="edit_posisi_penempatan(' . "'" . $kandidat[0]['id_kandidat'] . "'" . ')"><i class="glyphicon glyphicon-pencil"></i></a>'; ?>
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                </div>
+            </div>
+<?php $to = count($pos_penempatan);
+for ($a = 0; $a < $to; $a++) { ?>
+                <div id="parent" >
+                    <div id="wide" class="box-body">
+                        <strong>Posisi Penempatan</strong> : <?php echo $pos_penempatan[$a]['posisi'] ?> <br>
+                        <strong>Cabang</strong> : <?php echo $pos_penempatan[$a]['nama_cabang'] ?><br>
+                        <strong>Area</strong> : <?php echo $pos_penempatan[$a]['nama_area'] ?><br>
+                    </div>
+                </div> <hr>
+<?php } ?>
+        </div></div>
     <div class="box box-default">
         <div class="box-header with-border">
             <h3 class="box-title">Hasil PSIKOTES</h3>
@@ -2164,10 +2384,8 @@ for ($a = 0; $a < $total_org; $a++) {
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
         </div>
-        <?php
-        $to = count($psikotes);
-        for ($a = 0; $a < $to; $a++) {
-            ?>
+<?php $to = count($psikotes);
+for ($a = 0; $a < $to; $a++) { ?>
             <div id="parent" >
                 <div id="wide" class="box-body">
                     <strong>Jenis Psikotes</strong> : IST<br>
@@ -2176,7 +2394,5 @@ for ($a = 0; $a < $total_org; $a++) {
                     <strong>Nilai</strong> : <?php echo $psikotes[$a]['nilai'] ?><br>
                     <strong>Waktu Pengerjaan</strong> : <?php echo indonesian_dates($psikotes[$a]['datetime']) ?><br>
                 </div></div> <hr>
-    <?php }
-?>
-    </div>
+<?php } ?></div>
 </section>

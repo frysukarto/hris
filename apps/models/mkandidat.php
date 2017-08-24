@@ -430,12 +430,18 @@ class Mkandidat extends CI_Model {
     /*DETAIL KANDIDAT END*/
     
     /*UPDATE KANDIDAT START*/
-    function update_pass_foto_kandidat($pass_foto,$id_kandidat) {
-        $sql = "UPDATE td_kandidat SET pas_foto_file = '$pass_foto' WHERE id_kandidat =".$id_kandidat;
-        $this->db->query($sql);
-        $this->db->close();
-        return TRUE;
+//    function update_pass_foto_kandidat($pass_foto,$id_kandidat) {
+//        $sql = "UPDATE td_kandidat SET pas_foto_file = '$pass_foto' WHERE id_kandidat =".$id_kandidat;
+//        $this->db->query($sql);
+//        $this->db->close();
+//        return TRUE;
+//    }
+    
+    public function update_pass_foto_kandidat($where, $data) {
+        $this->db->update('td_kandidat', $data, $where);
+        return $this->db->affected_rows();
     }
+    
     function delete_pass_foto_kandidat($id_kandidat) {
         $sql = "UPDATE td_kandidat SET pas_foto_file = '' WHERE id_kandidat =".$id_kandidat;
         $this->db->query($sql);
@@ -505,48 +511,6 @@ class Mkandidat extends CI_Model {
     }
     /*KANDIDAT PRINT START END*/
     
-    /*KANDIDAT VIEW DELETE START*/
-    function delete_view_organisasi($id_organisasi) {
-        $sql = "DELETE FROM td_organisasi WHERE id_organisasi =".$id_organisasi;
-        $this->db->query($sql);
-        return TRUE;
-    }
-    function delete_view_referensi($id_referensi) {
-        $sql = "DELETE FROM td_referensi WHERE id_referensi =".$id_referensi;
-        $this->db->query($sql);
-        return TRUE;
-    }
-    function delete_view_keluarga($id_keluarga) {
-        $sql = "DELETE FROM td_keluarga WHERE id_keluarga =".$id_keluarga;
-        $this->db->query($sql);
-        return TRUE;
-    }
-    function delete_view_pendidikan($id_pendidikan_formal) {
-        $sql = "DELETE FROM td_pendidikan_formal WHERE id_pendidikan_formal =".$id_pendidikan_formal;
-        $this->db->query($sql);
-        return TRUE;
-    }
-    function delete_view_pengalaman($id_pengalaman_kerja) {
-        $sql = "DELETE FROM td_pengalaman_kerja WHERE id_pengalaman_kerja =".$id_pengalaman_kerja;
-        $this->db->query($sql);
-        return TRUE;
-    }
-    function delete_view_kemkomputer($id_kemampuan_komputer) {
-        $sql = "DELETE FROM td_kemampuan_komputer WHERE id_kemampuan_komputer =".$id_kemampuan_komputer;
-        $this->db->query($sql);
-        return TRUE;
-    }
-    function delete_view_kembahasa($id_kemampuan_bahasa) {
-        $sql = "DELETE FROM td_kemampuan_bahasa WHERE id_kemampuan_bahasa =".$id_kemampuan_bahasa;
-        $this->db->query($sql);
-        return TRUE;
-    }function delete_view_kursus($id_kursus) {
-        $sql = "DELETE FROM td_kursus WHERE id_kursus =".$id_kursus;
-        $this->db->query($sql);
-        return TRUE;
-    }
-    
-    /*KANDIDAT VIEW DELETE END*/
     
     /*CLEAN EMPTY DATA*/
     function delete_empty_pendidikan() {
@@ -636,4 +600,41 @@ class Mkandidat extends CI_Model {
         return $data;
     }
    /*AJAX PROV DAERAH END*/
+    
+   /*DELETE*/
+  
+    public function delete_view_kursus($id) {
+        $this->db->where('id_kursus', $id);
+        $this->db->delete('td_kursus');
+    }
+    function delete_view_organisasi($id) {
+        $this->db->where('id_organisasi', $id);
+        $this->db->delete('td_organisasi');
+    }
+    function delete_view_referensi($id) {
+        $this->db->where('id_referensi', $id);
+        $this->db->delete('td_referensi');
+    }
+    function delete_view_keluarga($id) {
+        $this->db->where('id_keluarga', $id);
+        $this->db->delete('td_keluarga');
+    }
+    function delete_view_pendidikan($id) {
+        $this->db->where('id_pendidikan_formal', $id);
+        $this->db->delete('td_pendidikan_formal');
+    }
+    function delete_view_pengalaman($id) {
+        $this->db->where('id_pengalaman_kerja', $id);
+        $this->db->delete('td_pengalaman_kerja');
+    }
+    function delete_view_kemkomputer($id) {
+        $this->db->where('id_kemampuan_komputer', $id);
+        $this->db->delete('td_kemampuan_komputer');
+    }
+    function delete_view_kembahasa($id) {
+         $this->db->where('id_kemampuan_bahasa', $id);
+        $this->db->delete('td_kemampuan_bahasa');
+    }
+   /*END DELETE*/
+    
 }
