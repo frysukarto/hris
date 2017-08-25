@@ -471,7 +471,8 @@
                             <div class="col-md-9">
                                 <select class="form-control select2" name="informasi_dari" style="width: 100%;"> 
                                     <option selected="" value="">--Silahkan Pilih--</option>
-                                    <?php $c = count($sorching);
+                                    <?php
+                                    $c = count($sorching);
                                     for ($s = 0; $s < $c; $s++) {
                                         ?>
                                         <option value="<?php echo $sorching[$s]['sorching'] ?>"><?php echo $sorching[$s]['sorching'] ?></option>
@@ -552,8 +553,6 @@
                                 </select>
                             </div>
                         </div>
-
-
                         <div class="form-group">
                             <label class="control-label col-md-3">Gender</label>
                             <div class="col-md-9">
@@ -562,10 +561,8 @@
                                     <option value="wanita">Wanita</option>
                                     <option value="pria">Pria</option>
                                 </select>
-
                             </div>
                         </div>
-
                     </div>
                 </form>
             </div>
@@ -577,8 +574,6 @@
     </div>
 </div>
 <!--END KELUARGA-->
-
-
 <!--START PENGALAMAN KERJA-->
 <div class="modal fade" id="modal_add_pengalaman" role="dialog">
     <div class="modal-dialog">
@@ -1881,7 +1876,8 @@
                 if (data.status)
                 {
                     $("#pass_foto").load(" #pass_foto");
-                } else
+                } 
+                else
                 {
                     for (var i = 0; i < data.inputerror.length; i++)
                     {
@@ -1911,7 +1907,7 @@
             <div class="box-header with-border">
                 <h3 class="box-title">DATA PRIBADI</h3>
                 <div class="box-tools pull-right">
-<?php echo '<a href="javascript:void(0)" class="btn btn-box-tool" title="Edit" onclick="edit_person(' . "'" . $kandidat[0]['id_kandidat'] . "'" . ')"><i class="glyphicon glyphicon-pencil"></i></a>'; ?>
+                    <?php echo '<a href="javascript:void(0)" class="btn btn-box-tool" title="Edit" onclick="edit_person(' . "'" . $kandidat[0]['id_kandidat'] . "'" . ')"><i class="glyphicon glyphicon-pencil"></i></a>'; ?>
                     <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                     </button>
                     <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -1951,25 +1947,21 @@
             </div>
         </div>
         <div class="box-body" id="pass_foto">
-            <form action="#" id="pass"  method="post" enctype="multipart/form-data">
-<?php if ($kandidat[0]['pas_foto_file'] != "") { ?>
-                
-                        <strong>PAS FOTO</strong> :  <img src="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>" alt="<?php echo strip_tags($kandidat[0]['nama_lengkap']) ?>" height="100" width="100">
-                        <a target="_blank" download="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>" href="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>">Lihat/Download FOTO</a>
-                        <a href="<?php echo base_url() ?>delete-pass-foto/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>"> 
-                        </a><br> <?php } else { ?>
-                        <label>Pas Foto : (.jpg/.png/.jpeg) 
-                        <input hidden name="nama_lengkap" value="<?php echo slug($kandidat[0]['nama_lengkap']) ?>">
-                        <input type="file" name="pas_foto_file">
-                        <input type="hidden" value="<?php echo $this->uri->segment(2);?>" name="id_kandidat"></label>
-                        <button type="button" id="btnSavePassfoto" onclick="update_pas_foto()" class="btn btn-primary">Save</button>
-<?php } ?>
-                </form> <hr>
-                
-                
-                
-                
-                
+            <form  method="post" enctype="multipart/form-data" id="pass">
+            <?php if ($kandidat[0]['pas_foto_file'] != "") { ?>
+                    <strong>PAS FOTO</strong> :  <img src="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>" alt="<?php echo strip_tags($kandidat[0]['nama_lengkap']) ?>" height="100" width="100">
+                    <a target="_blank" download="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>" href="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>">Lihat/Download FOTO</a>
+                    <a href="<?php echo base_url() ?>delete-pass-foto/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>"> 
+                    </a><br> <?php } else { ?>
+                    <label>Pas Foto : (.jpg/.png/.jpeg) 
+                    <input hidden name="nama_lengkap" value="<?php echo slug($kandidat[0]['nama_lengkap']) ?>">
+                    <input  type="file" name="pas_foto_file">
+                    <input type="hidden" value="<?php echo $this->uri->segment(2); ?>" name="id_kandidat">
+                    </label>
+                    <button type="button" id="btnSavePassfoto" onclick="update_pas_foto()" class="btn btn-primary">Save</button>
+            <?php } ?>
+            </form> <hr>
+
             <form  action="<?php echo base_url(); ?>view/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>" method="post" enctype="multipart/form-data">
 <?php if ($kandidat[0]['ktp_scan_file'] != "") { ?><strong>KTP SCAN</strong> :  <img src="<?php echo base_url() ?>upload/kadidat/ktp/<?php echo $kandidat[0]['ktp_scan_file'] ?>" alt="<?php echo strip_tags($kandidat[0]['nama_lengkap']) ?>" height="100" width="100"><a target="_blank" download="<?php echo base_url() ?>upload/kadidat/ktp/<?php echo $kandidat[0]['ktp_scan_file'] ?>" href="<?php echo base_url() ?>upload/kadidat/ktp/<?php echo $kandidat[0]['ktp_scan_file'] ?>">Lihat/Download KTP</a>
                     <a href="<?php echo base_url() ?>delete-ktp/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>"> <button type="button" class="btn btn-box-tool" ><i class="fa fa-times"></i></button><br><br>
@@ -2364,8 +2356,9 @@
                     <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
                 </div>
             </div>
-<?php $to = count($pos_penempatan);
-for ($a = 0; $a < $to; $a++) { ?>
+            <?php $to = count($pos_penempatan);
+            for ($a = 0; $a < $to; $a++) {
+                ?>
                 <div id="parent" >
                     <div id="wide" class="box-body">
                         <strong>Posisi Penempatan</strong> : <?php echo $pos_penempatan[$a]['posisi'] ?> <br>
@@ -2385,7 +2378,8 @@ for ($a = 0; $a < $to; $a++) { ?>
             </div>
         </div>
 <?php $to = count($psikotes);
-for ($a = 0; $a < $to; $a++) { ?>
+for ($a = 0; $a < $to; $a++) {
+    ?>
             <div id="parent" >
                 <div id="wide" class="box-body">
                     <strong>Jenis Psikotes</strong> : IST<br>

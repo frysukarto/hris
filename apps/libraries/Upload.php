@@ -795,7 +795,7 @@ class CI_Upload {
 		return TRUE;
 	}
         
-        public function pas_foto_file($field = 'pas_foto_file')
+        public function pas_foto_file($field='pas_foto_file')
 	{
 		// Is $_FILES[$field] set? If not, no reason to continue.
 		if (isset($_FILES[$field]))

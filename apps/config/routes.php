@@ -69,6 +69,8 @@ $route['mod-addsoal-ist-psikotes/(.*)'] = 'modul/psikotes/add_ist_psikotes/index
 $route['terimakasih'] = 'modul/psikotes/thankyoupage';
 $route['instruksi-psikotes/(.*)'] = 'modul/psikotes/instruksi_ist/index/$1';
 $route['lowongan'] = 'modul/lowongan';
+
+$route['uploads'] = 'upload';
 /*MODUL ROUTES END*/
 
 /**/

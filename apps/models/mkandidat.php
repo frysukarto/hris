@@ -430,17 +430,21 @@ class Mkandidat extends CI_Model {
     /*DETAIL KANDIDAT END*/
     
     /*UPDATE KANDIDAT START*/
-//    function update_pass_foto_kandidat($pass_foto,$id_kandidat) {
-//        $sql = "UPDATE td_kandidat SET pas_foto_file = '$pass_foto' WHERE id_kandidat =".$id_kandidat;
-//        $this->db->query($sql);
-//        $this->db->close();
-//        return TRUE;
+    function update_pass_foto_kandidat($pass_foto,$id_kandidat) {
+        $sql = "UPDATE td_kandidat SET pas_foto_file = '$pass_foto' WHERE id_kandidat =".$id_kandidat;
+        $this->db->query($sql);
+        $this->db->close();
+        return TRUE;
+    }
+    
+//    public function update_pass_foto_kandidat($where, $data) {
+//        $this->db->update('td_kandidat', $data, $where);
+//        return $this->db->affected_rows();
 //    }
     
-    public function update_pass_foto_kandidat($where, $data) {
-        $this->db->update('td_kandidat', $data, $where);
-        return $this->db->affected_rows();
-    }
+  
+ 
+
     
     function delete_pass_foto_kandidat($id_kandidat) {
         $sql = "UPDATE td_kandidat SET pas_foto_file = '' WHERE id_kandidat =".$id_kandidat;
