@@ -967,7 +967,7 @@
     </div>
 </div>
 <!--POSISI DAN PENEMPATAN END-->
-
+      
 <script type="text/javascript">
     var save_method;
     var modal_form_data_pribadi;
@@ -1896,8 +1896,96 @@
             }
         });
     }
-
+    
+    function delete_pas_foto()
+    {
+        if (confirm('Are you sure delete this data?'))
+        {
+            $.ajax({
+                url: "<?php echo site_url('kandidat/view_all_kandidat/ajax_delete_pass_foto/'.$this->uri->segment(2).'') ?>",
+                type: "POST",
+                dataType: "JSON",
+                success: function (data)
+                {
+                    $("#pass_foto").load(" #pass_foto");
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    alert('Error deleting data');
+                }
+            });
+        }
+    }
+    function delete_cv()
+    {
+        if (confirm('Are you sure delete this data?'))
+        {
+            $.ajax({
+                url: "<?php echo site_url('kandidat/view_all_kandidat/ajax_delete_cv/'.$this->uri->segment(2).'') ?>",
+                type: "POST",
+                dataType: "JSON",
+                success: function (data)
+                {
+                    $("#cv").load(" #cv");
+                },
+                error: function (jqXHR, textStatus, errorThrown)
+                {
+                    alert('Error deleting data');
+                }
+            });
+        }
+    }
 </script>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function (e) {
+                $('#upload').on('click', function () {
+                    var file_data = $('#pas_foto_file').prop('files')[0];
+                    var form_data = new FormData();
+                    form_data.append('pas_foto_file', file_data);
+                    $.ajax({
+                        url: '<?php echo base_url()?>/kandidat/view_all_kandidat/upload_file/<?php echo $this->uri->segment(2) ?>', // point to server-side controller method
+                        dataType: 'text', // what to expect back from the server
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        data: form_data,
+                        type: 'post',
+                        success: function (response) {
+                            //$('#msg').html(response); 
+                            $("#pass_foto").load(" #pass_foto");
+                        },
+                        error: function (response) {
+                            $('#msg').html(response);
+                        }
+                    });
+                });
+            });
+            $(document).ready(function (e) {
+                $('#upload_cv').on('click', function () {
+                    var file_data = $('#cv_file').prop('files')[0];
+                    var form_data = new FormData();
+                    form_data.append('cv_file', file_data);
+                    $.ajax({
+                        url: '<?php echo base_url()?>/kandidat/view_all_kandidat/upload_file_cv/<?php echo $this->uri->segment(2) ?>', // point to server-side controller method
+                        dataType: 'text', // what to expect back from the server
+                        cache: false,
+                        contentType: false,
+                        processData: false,
+                        data: form_data,
+                        type: 'post',
+                        success: function (response) {
+                            //$('#msg').html(response); 
+                            $("#cv").load(" #cv");
+                        },
+                        error: function (response) {
+                            $('#msg').html(response);
+                        }
+                    });
+                });
+            });
+        </script>
 <div class="box-footer">
     <a download href="<?php echo base_url() ?>report/report_kandidat/create_pdf_as_cv_by_id/<?php echo $kandidat[0]['id_kandidat'] ?>">Print <img width="20" src="<?php echo base_url() ?>/assets/images/pdf.png"></a>
 </div><br>
@@ -1941,39 +2029,54 @@
         <div class="box-header with-border">
             <h3 class="box-title">Attachment</h3>
             <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
                 <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
             </div>
         </div>
-        <div class="box-body" id="pass_foto">
-            <form  method="post" enctype="multipart/form-data" id="pass">
-            <?php if ($kandidat[0]['pas_foto_file'] != "") { ?>
-                    <strong>PAS FOTO</strong> :  <img src="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>" alt="<?php echo strip_tags($kandidat[0]['nama_lengkap']) ?>" height="100" width="100">
-                    <a target="_blank" download="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>" href="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>">Lihat/Download FOTO</a>
-                    <a href="<?php echo base_url() ?>delete-pass-foto/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>"> 
-                    </a><br> <?php } else { ?>
-                    <label>Pas Foto : (.jpg/.png/.jpeg) 
-                    <input hidden name="nama_lengkap" value="<?php echo slug($kandidat[0]['nama_lengkap']) ?>">
-                    <input  type="file" name="pas_foto_file">
-                    <input type="hidden" value="<?php echo $this->uri->segment(2); ?>" name="id_kandidat">
-                    </label>
-                    <button type="button" id="btnSavePassfoto" onclick="update_pas_foto()" class="btn btn-primary">Save</button>
-            <?php } ?>
-            </form> <hr>
+        <div class="box-body" >
 
-            <form  action="<?php echo base_url(); ?>view/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>" method="post" enctype="multipart/form-data">
-<?php if ($kandidat[0]['ktp_scan_file'] != "") { ?><strong>KTP SCAN</strong> :  <img src="<?php echo base_url() ?>upload/kadidat/ktp/<?php echo $kandidat[0]['ktp_scan_file'] ?>" alt="<?php echo strip_tags($kandidat[0]['nama_lengkap']) ?>" height="100" width="100"><a target="_blank" download="<?php echo base_url() ?>upload/kadidat/ktp/<?php echo $kandidat[0]['ktp_scan_file'] ?>" href="<?php echo base_url() ?>upload/kadidat/ktp/<?php echo $kandidat[0]['ktp_scan_file'] ?>">Lihat/Download KTP</a>
+            <div id="pass_foto">
+                <?php if ($kandidat[0]['pas_foto_file'] != "") { ?>
+                <strong>PAS FOTO</strong> :  <img src="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>" alt="<?php echo strip_tags($kandidat[0]['nama_lengkap']) ?>" height="100" width="100">
+                <a target="_blank" download="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>" href="<?php echo base_url() ?>upload/kadidat/pas_foto/<?php echo $kandidat[0]['pas_foto_file'] ?>">Lihat/Download FOTO</a>
+               <a href="javascript:void(0)"  onclick="delete_pas_foto('<?php echo $kandidat[0]['id_kandidat'] ?>')"> <i class="fa fa-times"></i></a><br> <?php } else { ?>
+                <label>Pas Foto : (.jpg/.png/.jpeg) 
+               <input type="file" required="" id="pas_foto_file" name="pas_foto_file" />
+               
+               
+                </label> <button id="upload">Upload</button>
+                <?php } ?>
+            </div>
+            <hr>
+            <div id="cv">                
+                <?php if ($kandidat[0]['cv_file'] != "") { ?>
+                <strong>CV</strong> :  <a target="_blank" download="<?php echo base_url() ?>upload/kadidat/cv/<?php echo $kandidat[0]['cv_file'] ?>" href="<?php echo base_url() ?>upload/kadidat/cv/<?php echo $kandidat[0]['cv_file'] ?>">Lihat/Download CV</a> 
+               
+                <a href="javascript:void(0)"  onclick="delete_cv('<?php echo $kandidat[0]['id_kandidat'] ?>')"> <i class="fa fa-times"></i></a><br>
+               
+                <br><br><?php } else { ?>
+                <label>CV File : (.jpg/.png/.jpeg) 
+                    <input type="file" id="cv_file" name="cv_file"></label>
+                <button id="upload_cv">Upload</button>
+                <?php } ?>
+            </div>
+                    <br><hr>
+                    
+             
+        
+  
+        <form  action="<?php echo base_url(); ?>view/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>" method="post" enctype="multipart/form-data">
+        <?php if ($kandidat[0]['ktp_scan_file'] != "") { ?><strong>KTP SCAN</strong> :  <img src="<?php echo base_url() ?>upload/kadidat/ktp/<?php echo $kandidat[0]['ktp_scan_file'] ?>" alt="<?php echo strip_tags($kandidat[0]['nama_lengkap']) ?>" height="100" width="100"><a target="_blank" download="<?php echo base_url() ?>upload/kadidat/ktp/<?php echo $kandidat[0]['ktp_scan_file'] ?>" href="<?php echo base_url() ?>upload/kadidat/ktp/<?php echo $kandidat[0]['ktp_scan_file'] ?>">Lihat/Download KTP</a>
                     <a href="<?php echo base_url() ?>delete-ktp/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>"> <button type="button" class="btn btn-box-tool" ><i class="fa fa-times"></i></button><br><br>
                     </a><?php } else { ?>
                     <label>Ktp Scan : (.jpg/.png/.jpeg) <input hidden name="nama_lengkap" value="<?php echo slug($kandidat[0]['nama_lengkap']) ?>"><input type="file" name="ktp_scan_file"></label><input value="submit" name="submit" type="submit"><?php } ?>
             </form>
-            <hr>
-            <form  action="<?php echo base_url(); ?>view/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>" method="post" enctype="multipart/form-data">
+            <!--<hr>-->
+<!--            <form  action="<?php echo base_url(); ?>view/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>" method="post" enctype="multipart/form-data">
 <?php if ($kandidat[0]['cv_file'] != "") { ?><strong>CV</strong>       :  <a target="_blank" download="<?php echo base_url() ?>upload/kadidat/cv/<?php echo $kandidat[0]['cv_file'] ?>" href="<?php echo base_url() ?>upload/kadidat/cv/<?php echo $kandidat[0]['cv_file'] ?>">Lihat/Download CV</a> <a href="<?php echo base_url() ?>delete-cv/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>"> <button type="button" class="btn btn-box-tool" ><i class="fa fa-times"></i></button>
                     </a><br><br><?php } else { ?>
                     <label>CV File : (.jpg/.png/.jpeg) <input hidden name="nama_lengkap" value="<?php echo slug($kandidat[0]['nama_lengkap']) ?>"><input type="file" name="cv_file"></label><input value="submit" name="submit" type="submit"><?php } ?>
-            </form>
+            </form>-->
 
             <hr>
             <form  action="<?php echo base_url(); ?>view/<?php echo $kandidat[0]['id_kandidat'] ?>/<?php echo slug($kandidat[0]['nama_lengkap']) ?>" method="post" enctype="multipart/form-data">
@@ -2011,7 +2114,8 @@
                 if ($pengalaman[$a]['nama_perusahaan'] != "") {
                     if ($pengalaman[$a]['tahun_keluar'] == "Sekarang") {
                         $sampai = $pengalaman[$a]['tahun_keluar'];
-                    } else {
+                    } 
+                    else {
                         $sampai = indonesian_date($pengalaman[$a]['tahun_keluar']);
                     }
                     ?>

@@ -436,7 +436,21 @@ class Mkandidat extends CI_Model {
         $this->db->close();
         return TRUE;
     }
+    function delete_pass_foto($where, $data) {
+        $this->db->update('td_kandidat', $data, $where);
+        return $this->db->affected_rows();
+    }
     
+     function update_cv_kandidat($cv,$id_kandidat) {
+        $sql = "UPDATE td_kandidat SET cv_file = '$cv' WHERE id_kandidat =".$id_kandidat;
+        $this->db->query($sql);
+        $this->db->close();
+        return TRUE;
+    }
+    function delete_cv($where, $data) {
+        $this->db->update('td_kandidat', $data, $where);
+        return $this->db->affected_rows();
+    }
 //    public function update_pass_foto_kandidat($where, $data) {
 //        $this->db->update('td_kandidat', $data, $where);
 //        return $this->db->affected_rows();
@@ -453,12 +467,6 @@ class Mkandidat extends CI_Model {
         return TRUE;
     }
     
-    function update_cv_kandidat($cv,$id_kandidat) {
-        $sql = "UPDATE td_kandidat SET cv_file = '$cv' WHERE id_kandidat =".$id_kandidat;
-        $this->db->query($sql);
-        $this->db->close();
-        return TRUE;
-    }
     function delete_cv_kandidat($id_kandidat) {
         $sql = "UPDATE td_kandidat SET cv_file = '' WHERE id_kandidat =".$id_kandidat;
         $this->db->query($sql);

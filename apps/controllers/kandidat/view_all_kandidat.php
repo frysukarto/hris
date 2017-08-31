@@ -968,6 +968,77 @@ class View_all_kandidat extends CI_Controller {
         }
     }
     
+    function upload_file($data) {
+        $config['upload_path'] = $this->config->item('upload_foto') . '/';
+        $config['allowed_types'] = '*';
+        $time = md5(date("Y-m-d h:i:s"));
+        $path_info = pathinfo($_FILES["pas_foto_file"]['name']);
+        $new_name = 'pas_foto_'.randomString(16).$time.".".$path_info['extension'];
+        $config['file_name'] =  $new_name;
+        $config['max_size'] = '1024';
+        if (isset($_FILES['pas_foto_file']['name'])) 
+        {
+            $this->load->library('upload', $config);
+            if (!$this->upload->pas_foto_file('pas_foto_file')) {
+                echo $this->upload->display_errors();
+            } 
+            else 
+            {
+               $this->mkandidat->update_pass_foto_kandidat($new_name, $this->uri->segment(4));
+               echo 'File successfully uploaded : '.$this->config->item('upload_foto') . '/' . $_FILES['pas_foto_file']['name'];
+            }
+        } 
+        else 
+        {
+            echo 'Please choose a file';
+        }
+    }
+    
+    
+    function upload_file_cv($data) {
+        $config['upload_path'] = $this->config->item('upload_cv') . '/';
+        $config['allowed_types'] = '*';
+        $time = md5(date("Y-m-d h:i:s"));
+        $path_info = pathinfo($_FILES["cv_file"]['name']);
+        $new_name = 'cv_'.randomString(16).$time.".".$path_info['extension'];
+        $config['file_name'] =  $new_name;
+        $config['max_size'] = '1024';
+        if (isset($_FILES['cv_file']['name'])) 
+        {
+            $this->load->library('upload', $config);
+            if (!$this->upload->cv_file('cv_file')) {
+                echo $this->upload->display_errors();
+            } 
+            else 
+            {
+               $this->mkandidat->update_cv_kandidat($new_name, $this->uri->segment(4));
+              // echo 'File successfully uploaded : '.$this->config->item('upload_cv') . '/' . $_FILES['pas_foto_file']['name'];
+            }
+        } 
+        else 
+        {
+            echo 'Please choose a file';
+        }
+    }
+    
+    function ajax_delete_pass_foto()
+    {
+        $data = array(
+            'pas_foto_file' => '',
+        );
+        $this->mkandidat->delete_pass_foto(array('id_kandidat' =>$this->uri->segment(4) ), $data);
+        echo json_encode(array("status" => TRUE));
+    }
+    
+    function ajax_delete_cv()
+    {
+        $data = array(
+            'cv_file' => '',
+        );
+        $this->mkandidat->delete_cv(array('id_kandidat' =>$this->uri->segment(4) ), $data);
+        echo json_encode(array("status" => TRUE));
+    }
+    
     function is_logged_in() {
         $is_logged_in = $this->session->userdata('is_logged_in');
         if (!isset($is_logged_in) || $is_logged_in != true) {
